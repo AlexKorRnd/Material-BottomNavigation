@@ -2,7 +2,6 @@ package it.sephiroth.android.library.bottomnavigation;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
 
 /**
  * Created by alessandro on 4/3/16.
@@ -22,7 +21,7 @@ public class BottomNavigationItem {
     }
 
     protected Drawable getIcon(Context context) {
-        return ContextCompat.getDrawable(context, this.iconResource);
+        return VectorUtils.loadVector(context, iconResource);
     }
 
     protected String getTitle() {
