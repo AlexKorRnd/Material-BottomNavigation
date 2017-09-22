@@ -405,6 +405,26 @@ public class BottomNavigation extends FrameLayout implements OnItemClickListener
         return 0;
     }
 
+    /**
+     * Returns the position of the item at the specified id
+     *
+     * @param itemId the id of the menu item
+     * @return the item ID. -1 if no found
+     */
+    @IdRes
+    public int getMenuItemPosition(@IdRes int itemId) {
+        if (null != menu) {
+            BottomNavigationItem[] items = menu.getItems();
+            int length = items.length;
+            for (int index = 0; index < length; length++) {
+                if (items[index].getId() == itemId) {
+                    return index;
+                }
+            }
+        }
+        return -1;
+    }
+
     public void setMenuItemEnabled(final int index, final boolean enabled) {
         log(TAG, INFO, "setMenuItemEnabled(%d, %b)", index, enabled);
         if (null != menu) {
